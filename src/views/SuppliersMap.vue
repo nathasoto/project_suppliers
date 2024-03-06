@@ -3,11 +3,17 @@
 </script>
 
 <template>
-  <div >
+  <div>
     <h1>Carte des fournisseurs</h1>
   </div>
 </template>
 
 <style scoped>
+h1{
+  font-family: Calibri;
+  color:  #414e62 ;
+  text-align: center;
+  font-size: 50px;
+}
 
 </style>

@@ -2,88 +2,42 @@
 import { RouterLink, RouterView } from 'vue-router'
 import OnMapClick from "@/components/onMapClick.vue";
 import OnSuppliersListClick from "@/components/onSuppliersListClick.vue";
+import HomeView from "@/views/HomeView.vue";
 
 
 </script>
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img alt="imagen"  src="@/assets/logo.svg"  />
 
-    <div class="wrapper">
+    <div>
       <h1>Que voulez vous faire ?</h1>
 
       <nav>
         <on-suppliers-list-click></on-suppliers-list-click>
-
-        <OnMapClick></OnMapClick>
-
+        <on-map-click></on-map-click>
       </nav>
     </div>
 
   </header>
-  <RouterView />
+  <router-view></router-view>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+img{
+  display:block;
+  width: 400px;
+  height: 300px;
+  margin: 80px auto auto;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
+h1{
+  font-family: Calibri;
+  color:  #414e62 ;
   text-align: center;
-  margin-top: 2rem;
+  font-size: 50px;
 }
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+nav{
+  display: flex;
+  justify-content: center;
 }
 </style>
