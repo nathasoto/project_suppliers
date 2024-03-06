@@ -1,10 +1,13 @@
 <script setup>
-
-import {RouterLink} from "vue-router";
+import { RouterLink } from "vue-router";
 </script>
 
 <template>
-    <RouterLink to="/supplierslist" ><button class="buttonLink" role="link">Consulter la liste des fournisseurs</button></RouterLink>
+  <RouterLink to="/supplierslist"
+    ><button class="buttonLink" role="link">
+      Consulter la liste des fournisseurs
+    </button></RouterLink
+  >
 </template>
 
 <style scoped>
@@ -18,5 +21,4 @@ import {RouterLink} from "vue-router";
   margin-right: 10px;
   border: none;
 }
-
 </style>
