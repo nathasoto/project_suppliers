@@ -1,6 +1,6 @@
 <!--father-->
 <script setup>
-import Supplier from "@/views/Supplier.vue";
+import Supplier from "@/components/Supplier.vue";
 
 const suppliers = [
   {

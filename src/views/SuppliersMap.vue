@@ -3,6 +3,7 @@
 import "leaflet/dist/leaflet.css";
 import { ref } from 'vue';
 import { LMap, LTileLayer, LMarker, LPopup } from "@vue-leaflet/vue-leaflet";
+import L from 'leaflet'
 
 const zoom = ref(2);
 
