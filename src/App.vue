@@ -6,7 +6,7 @@ import HomeView from "@/views/HomeView.vue";
 </script>
 <template>
   <header>
-    <img alt="imagen" src="@/assets/logo.svg" />
+    <img alt="imagen" src="https://s.tmimgcdn.com/scr/1200x627/312400/spirulina-icone-do-logotipo-comida-saudavel-organica-v3_312460-original.jpg" />
 
     <div>
       <h1>Que voulez vous faire ?</h1>
@@ -23,7 +23,7 @@ import HomeView from "@/views/HomeView.vue";
 <style scoped>
 img {
   display: block;
-  width: 400px;
+  width: 700px;
   height: 300px;
   margin: 80px auto auto;
 }

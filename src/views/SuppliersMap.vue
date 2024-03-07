@@ -23,9 +23,9 @@ const suppliers = ref([
 </script>
 
 <template>
-  <div>
+  <div >
     <h1>Carte des fournisseurs</h1>
-    <div style="height:600px; width:800px">
+    <div class="map" >
       <l-map ref="map" v-model:zoom="zoom" :center="[47.41322, -1.219482]">
         <l-tile-layer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -48,6 +48,15 @@ h1 {
   color: #414e62;
   text-align: center;
   font-size: 50px;
+}
+.map{
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height:600px;
+  width:800px;
+
 }
 
 </style>
