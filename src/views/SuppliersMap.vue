@@ -1,24 +1,38 @@
 <script setup>
-//  [45.1667, 5.7167];
 import "leaflet/dist/leaflet.css";
-import { ref } from 'vue';
+// import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { LMap, LTileLayer, LMarker, LPopup } from "@vue-leaflet/vue-leaflet";
 import L from 'leaflet'
 
 const zoom = ref(2);
 
-const suppliers = ref([
-  {
-    id: 1,
-    latitude: 45.171112,
-    longitude:  5.695952
-  },
-  {
-    id: 2,
-    latitude: 45.183152,
-    longitude: 5.699386
-  }
-]);
+// const suppliers = ref([
+//   {
+//     id: 1,
+//     latitude: 45.171112,
+//     longitude:  5.695952
+//   },
+//   {
+//     id: 2,
+//     latitude: 45.183152,
+//     longitude: 5.699386
+//   }
+// ]);
+
+import { fetchData } from '@/API/supplier_API.js'
+
+const suppliers = ref([]);
+const loading = ref(false);
+const error = ref(null);
+
+
+onMounted(() => {
+  loading.value = false
+  fetchData().then(response => suppliers.value = response);
+
+});
+
 
 </script>
 
@@ -35,7 +49,7 @@ const suppliers = ref([
 
         <!-- Agregar marcadores desde la lista de proveedores -->
         <l-marker v-for="supplier in suppliers" :key="supplier.id" :lat-lng="[supplier.latitude, supplier.longitude]">
-          <l-popup>{{ `Proveedor ID: ${supplier.id}` }}</l-popup>
+          <l-popup>{{ `Proveedor ID: ${supplier.name}` }}</l-popup>
         </l-marker>
       </l-map>
     </div>

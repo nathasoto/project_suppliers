@@ -1,8 +1,13 @@
 <!--father-->
 <script setup>
-import Supplier from "@/components/Supplier.vue";
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
+import Supplier from '@/components/Supplier.vue'
+import { ref, onMounted } from 'vue'
+import axios from 'axios'
+import { fetchData } from '../API/supplier_API.js'
+
+const suppliers = ref([])
+const loading = ref(false)
+const error = ref(null)
 
 // const suppliers = [
 //   {
@@ -20,23 +25,30 @@ import axios from 'axios';
 //  ];
 
 
-const suppliers = ref([]);
+onMounted(() => {
+  loading.value = false
+  fetchData().then(response => suppliers.value = response)
 
-onMounted(async () => {
-  try {
-    const response = await axios.get('https://suppliers.depembroke.fr/api/suppliers');
-    suppliers.value = response.data;
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
-});
+})
+
 
 </script>
 
 <template>
   <div>
     <h1>Liste des fournisseurs</h1>
-    <Supplier v-for="(supplierItem,index) in suppliers" :key="index" :supplier="supplierItem"  ></Supplier>
+
+    <!-- Show loading -->
+    <div v-if="loading">Loading...</div>
+
+    <!-- Show error -->
+    <div v-if="error">{{ error }}</div>
+
+    <!-- Show data -->
+    <ul v-if="suppliers.length > 0">
+      <Supplier v-for="(supplierItem,index) in suppliers" :key="index" :supplier="supplierItem"></Supplier>
+    </ul>
+
   </div>
 </template>
 
